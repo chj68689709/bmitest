@@ -73,7 +73,7 @@
   </div>
 
   <!-- 影片檔會跟 index.html 放在同一資料夾中 -->
-  <video id="rickroll" src="rickroll.mp4" autoplay controls></video>
+  <video id="rickroll" src="rickroll.mp4" autoplay muted playsinline></video>
 
   <script>
     function calculateBMI() {
@@ -120,10 +120,14 @@
     }
 
     function triggerRickroll() {
-      document.getElementById('container').style.display = 'none';
-      const video = document.getElementById('rickroll');
-      video.style.display = 'block';
-      video.play();
+     document.getElementById('container').style.display = 'none';
+     const video = document.getElementById('rickroll');
+     video.style.display = 'block';
+     video.muted = false;  // 嘗試取消靜音
+     video.volume = 1.0;
+     video.play();
+}
+
     }
   </script>
 </body>
